@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-12-24 11:09:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.lsy.pojo.Employee" table="m_employees" catalog="ciopms">
+        <id name="employeeId" type="java.lang.Integer">
+            <column name="employeeID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="8" not-null="true">
+                <comment>&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" length="1" not-null="true">
+                <comment>&#208;&#212;&#177;&#240; 0-&#197;&#174; 1-&#196;&#208;</comment>
+            </column>
+        </property>
+        <property name="age" type="string">
+            <column name="age" length="5">
+                <comment>&#196;&#234;&#193;&#228;</comment>
+            </column>
+        </property>
+        <property name="birthday" type="string">
+            <column name="birthday" length="15" not-null="true">
+                <comment>&#201;&#250;&#200;&#213;</comment>
+            </column>
+        </property>
+        <property name="department" type="string">
+            <column name="department" length="10" not-null="true">
+                <comment>&#178;&#191;&#195;&#197;</comment>
+            </column>
+        </property>
+        <property name="duty" type="string">
+            <column name="duty" length="20" not-null="true">
+                <comment>&#214;&#176;&#206;&#241;</comment>
+            </column>
+        </property>
+        <property name="education" type="string">
+            <column name="education" length="10" not-null="true">
+                <comment>&#209;&#167;&#192;&#250;</comment>
+            </column>
+        </property>
+        <property name="school" type="string">
+            <column name="school" length="40" not-null="true">
+                <comment>&#177;&#207;&#210;&#181;&#209;&#167;&#208;&#163;</comment>
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="45" not-null="true">
+                <comment>&#188;&#210;&#205;&#165;&#215;&#161;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="20" not-null="true">
+                <comment>&#202;&#214;&#187;&#250;</comment>
+            </column>
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone" length="20" not-null="true">
+                <comment>&#215;&#161;&#213;&#172;&#181;&#231;&#187;&#176;</comment>
+            </column>
+        </property>
+        <property name="married" type="boolean">
+            <column name="married" not-null="true">
+                <comment>&#187;&#233;&#183;&#241;</comment>
+            </column>
+        </property>
+        <property name="birthPlace" type="string">
+            <column name="birthPlace" length="40" not-null="true">
+                <comment>&#188;&#174;&#185;&#225;</comment>
+            </column>
+        </property>
+        <property name="dimission" type="boolean">
+            <column name="dimission" not-null="true">
+                <comment>&#202;&#199;&#183;&#241;&#192;&#235;&#214;&#176; 0-&#192;&#235;&#214;&#176; 1-&#212;&#218;&#214;&#176;</comment>
+            </column>
+        </property>
+        <property name="deleted" type="boolean">
+            <column name="deleted" not-null="true">
+                <comment>&#202;&#199;&#183;&#241;&#201;&#190;&#179;&#253; 0-&#206;&#180;&#201;&#190;&#179;&#253; 1-&#201;&#190;&#179;&#253;</comment>
+            </column>
+        </property>
+        <property name="holiday" type="boolean">
+            <column name="holiday" not-null="true">
+                <comment>&#202;&#199;&#183;&#241;&#199;&#235;&#188;&#217;</comment>
+            </column>
+        </property>
+        <set name="userses" table="users" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="employeeID" not-null="true">
+                    <comment>&#185;&#216;&#193;&#170;&#181;&#196;&#212;&#177;&#185;&#164;&#186;&#197;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.lsy.pojo.Users" />
+        </set>
+    </class>
+</hibernate-mapping>

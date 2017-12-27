@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-12-24 11:09:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.lsy.pojo.Users" table="users" catalog="ciopms">
+        <id name="username" type="string">
+            <column name="username" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="MEmployees" class="com.lsy.pojo.MEmployees" fetch="select">
+            <column name="employeeID" not-null="true">
+                <comment>&#185;&#216;&#193;&#170;&#181;&#196;&#212;&#177;&#185;&#164;&#186;&#197;</comment>
+            </column>
+        </many-to-one>
+        <property name="password" type="string">
+            <column name="password" length="32" not-null="true">
+                <comment>&#195;&#220;&#194;&#235; &#163;&#168;&#211;&#195;MD5&#188;&#211;&#195;&#220;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="enabled" not-null="true">
+                <comment>&#202;&#199;&#183;&#241;&#188;&#164;&#187;&#238;</comment>
+            </column>
+        </property>
+        <property name="deleted" type="boolean">
+            <column name="deleted" not-null="true">
+                <comment>&#202;&#199;&#183;&#241;&#201;&#190;&#179;&#253;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
